@@ -31,3 +31,12 @@ jobs:
           context: .
           push: true
           tags: bdorobek/action-test:latest
+
+      - 
+        name: Build and Push Docker Image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: bdorobek/action-test
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
